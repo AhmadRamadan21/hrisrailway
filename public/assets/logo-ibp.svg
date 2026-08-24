@@ -1,0 +1,57 @@
+<svg width="360" height="110" viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg">
+  <!-- Icon mark: V-shaped modern tower silhouette -->
+  <g transform="translate(6,12)">
+    <circle cx="43" cy="43" r="43" fill="#f8fafc"/>
+
+    <!-- left wing -->
+    <path d="M14 78 L14 34 L38 20 L38 78 Z" fill="#0f172a"/>
+    <!-- right wing -->
+    <path d="M72 78 L72 34 L48 20 L48 78 Z" fill="#0f172a"/>
+    <!-- center spine (taller) -->
+    <path d="M40 78 L40 12 L46 12 L46 78 Z" fill="#334155"/>
+
+    <!-- glass grid left wing -->
+    <g fill="#f8fafc" opacity="0.85">
+      <rect x="18" y="38" width="3.2" height="6" />
+      <rect x="24" y="38" width="3.2" height="6" />
+      <rect x="30" y="38" width="3.2" height="6" />
+      <rect x="18" y="48" width="3.2" height="6" />
+      <rect x="24" y="48" width="3.2" height="6" />
+      <rect x="30" y="48" width="3.2" height="6" />
+      <rect x="18" y="58" width="3.2" height="6" />
+      <rect x="24" y="58" width="3.2" height="6" />
+      <rect x="30" y="58" width="3.2" height="6" />
+      <rect x="18" y="68" width="3.2" height="6" />
+      <rect x="24" y="68" width="3.2" height="6" />
+      <rect x="30" y="68" width="3.2" height="6" />
+    </g>
+
+    <!-- glass grid right wing -->
+    <g fill="#f8fafc" opacity="0.85">
+      <rect x="52" y="38" width="3.2" height="6" />
+      <rect x="58" y="38" width="3.2" height="6" />
+      <rect x="64" y="38" width="3.2" height="6" />
+      <rect x="52" y="48" width="3.2" height="6" />
+      <rect x="58" y="48" width="3.2" height="6" />
+      <rect x="64" y="48" width="3.2" height="6" />
+      <rect x="52" y="58" width="3.2" height="6" />
+      <rect x="58" y="58" width="3.2" height="6" />
+      <rect x="64" y="58" width="3.2" height="6" />
+      <rect x="52" y="68" width="3.2" height="6" />
+      <rect x="58" y="68" width="3.2" height="6" />
+      <rect x="64" y="68" width="3.2" height="6" />
+    </g>
+
+    <!-- antenna on spine -->
+    <rect x="42.5" y="4" width="1.5" height="8" fill="#334155"/>
+
+    <!-- ground base -->
+    <rect x="10" y="78" width="66" height="3" rx="1.5" fill="#0f172a"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(112,0)">
+    <text x="0" y="52" font-family="'Inter', 'Segoe UI', sans-serif" font-size="30" font-weight="800" fill="#0f172a">HRIS IBP</text>
+    <text x="0" y="74" font-family="'Inter', 'Segoe UI', sans-serif" font-size="12" font-weight="600" letter-spacing="1.5" fill="#64748b">PT INTI BUMI PERKASA</text>
+  </g>
+</svg>
