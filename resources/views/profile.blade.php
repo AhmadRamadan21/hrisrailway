@@ -21,7 +21,7 @@
         
         {{-- Avatar Circle / Foto Profil --}}
         @if(auth()->user()->foto)
-          <img src="{{ asset('storage/' . auth()->user()->foto) }}" id="avatarPreview" alt="Profile Photo" class="rounded-circle mx-auto mb-3 shadow-sm object-fit-cover" style="width: 100px; height: 100px; border: 3px solid #e2e8f0;">
+          <img src="{{ asset(auth()->user()->foto) }}" id="avatarPreview" alt="Profile Photo" class="rounded-circle mx-auto mb-3 shadow-sm object-fit-cover" style="width: 100px; height: 100px; border: 3px solid #e2e8f0;">
         @else
           <div id="avatarInitials" class="avatar-circle mx-auto mb-3 shadow-sm" style="width: 100px; height: 100px; font-size: 32px; background: #2563eb;">
             {{ strtoupper(substr($user->name ?? $user->username, 0, 2)) }}

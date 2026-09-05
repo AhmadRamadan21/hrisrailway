@@ -164,7 +164,7 @@
       <div class="d-md-none p-3 mb-2 rounded-3 bg-light border">
         <div class="d-flex align-items-center gap-2">
           @if(auth()->user()->foto)
-            <img src="{{ asset('storage/' . auth()->user()->foto) }}" class="rounded-circle object-fit-cover" style="width: 36px; height: 36px;">
+            <img src="{{ asset(auth()->user()->foto) }}" class="rounded-circle object-fit-cover" style="width: 36px; height: 36px;">
           @else
             <div class="avatar-circle" style="width: 36px; height: 36px; font-size: 13px;">{{ strtoupper(substr(auth()->user()->name, 0, 2)) }}</div>
           @endif
@@ -292,7 +292,7 @@
         <div class="dropdown">
           <a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-reset dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             @if(auth()->user()->foto)
-              <img src="{{ asset('storage/' . auth()->user()->foto) }}" class="rounded-circle object-fit-cover" style="width: 36px; height: 36px;">
+              <img src="{{ asset(auth()->user()->foto) }}" class="rounded-circle object-fit-cover" style="width: 36px; height: 36px;">
             @else
               <div class="avatar-circle">{{ strtoupper(substr(auth()->user()->name, 0, 2)) }}</div>
             @endif

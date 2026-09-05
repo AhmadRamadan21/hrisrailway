@@ -9,6 +9,8 @@ use App\Models\Voucher;
 use App\Models\Absensi;
 use App\Models\Cuti;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class DashboardController extends Controller
 {
@@ -163,14 +165,24 @@ class DashboardController extends Controller
         ]);
 
         if ($request->hasFile('foto')) {
-            // Delete old photo if exists
-            if ($user->foto && \Illuminate\Support\Facades\Storage::disk('public')->exists($user->foto)) {
-                \Illuminate\Support\Facades\Storage::disk('public')->delete($user->foto);
+            $file = $request->file('foto');
+
+            // Delete old photo if exists (stored under public/...)
+            if ($user->foto && File::exists(public_path($user->foto))) {
+                File::delete(public_path($user->foto));
             }
 
-            // Store new photo
-            $path = $request->file('foto')->store('profil', 'public');
-            $user->foto = $path;
+            // Prepare destination under public/uploads/profil
+            $destinationPath = public_path('uploads/profil');
+            if (!File::exists($destinationPath)) {
+                File::makeDirectory($destinationPath, 0755, true);
+            }
+
+            $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+
+            // Save relative public path so `asset($user->foto)` works
+            $user->foto = 'uploads/profil/' . $filename;
             $user->save();
         }
 

@@ -172,7 +172,7 @@
         <!-- Profile Banner -->
         <div class="d-flex align-items-center gap-3 mb-4 p-3 rounded-4" style="background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%); border: 1px solid #dbeafe;">
           @if(optional($k->user)->foto)
-            <img src="{{ asset('storage/' . $k->user->foto) }}" alt="Foto" class="rounded-circle shadow-sm object-fit-cover" style="width: 56px; height: 56px; border: 2px solid #fff;">
+            <img src="{{ asset(optional($k->user)->foto) }}" alt="Foto" class="rounded-circle shadow-sm object-fit-cover" style="width: 56px; height: 56px; border: 2px solid #fff;">
           @else
             <div class="avatar-circle shadow-sm" style="width: 56px; height: 56px; font-size: 18px; background: #6366f1; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
               {{ strtoupper(substr($k->nama, 0, 2)) }}
