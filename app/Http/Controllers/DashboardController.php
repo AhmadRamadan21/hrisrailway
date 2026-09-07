@@ -83,7 +83,7 @@ class DashboardController extends Controller
         $totalAlfaHariIni = $countRejected; // Menggunakan variabel Tidak Hadir yang sudah dikalkulasi dengan aturan jam 15:00
 
         // 4. DATA AKTIVITAS TERAKHIR
-        $recentVouchers = Absensi::with('karyawan') 
+        $recentVouchers = Absensi::with('karyawan')
             ->latest()
             ->take(5)
             ->get();
@@ -97,7 +97,7 @@ class DashboardController extends Controller
 
         if ($karyawanLogin && $karyawanLogin->tanggal_lahir) {
             $ultah = Carbon::parse($karyawanLogin->tanggal_lahir);
-            
+
             // Cocokkan Bulan & Tanggal saja (Format: MM-DD)
             if ($ultah->format('m-d') === $today->format('m-d')) {
                 $isBirthday = true;
@@ -110,16 +110,16 @@ class DashboardController extends Controller
             ->map(function ($k) use ($today) {
                 $birthDate = Carbon::parse($k->tanggal_lahir);
                 $nextBday = $birthDate->copy()->year($today->year);
-                
+
                 // Jika ulang tahun tahun ini sudah lewat (bukan hari ini), maka ulang tahun berikutnya adalah tahun depan
                 if ($nextBday->isPast() && !$nextBday->isToday()) {
                     $nextBday->addYear();
                 }
-                
+
                 $k->next_birthday = $nextBday;
                 $k->days_until = $today->diffInDays($nextBday, false);
                 $k->age_turning = $nextBday->year - $birthDate->year;
-                
+
                 return $k;
             })
             // Filter opsional: hanya tampilkan yang ultahnya maksimal 6 bulan ke depan agar lebih relevan
@@ -128,13 +128,13 @@ class DashboardController extends Controller
             ->take(5);
 
         return view('dashboard', compact(
-            'totalVoucher', 
-            'totalPosBiaya', 
-            'totalBagian', 
+            'totalVoucher',
+            'totalPosBiaya',
+            'totalBagian',
             'totalRealisasiBulanIni',
-            'countDraft', 
-            'countApproved', 
-            'countRejected', 
+            'countDraft',
+            'countApproved',
+            'countRejected',
             'recentVouchers',
             'totalHadirHariIni',
             'totalCutiHariIni',
